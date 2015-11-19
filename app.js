@@ -1,6 +1,4 @@
-/*
- * Constants
- */
+//Constants
 var CONTACT_TEMPLATE = {
     name: "",
     email: "",
@@ -8,15 +6,13 @@ var CONTACT_TEMPLATE = {
     errors: null
 };
 
-/*
- * Model
- */
-
+//Initial state
 var state = {
     location: null,
+    transition: false,
     contacts: [
-        { key: 1, name: "James K Nelson", email: "james@jamesknelson.com", description: "Front-end Unicorn" },
-        { key: 2, name: "Jim", email: "jim@example.com" }
+        { key: "1", name: "James K Nelson", email: "james@jamesknelson.com", description: "Front-end Unicorn" },
+        { key: "2", name: "Jim", email: "jim@example.com" }
     ],
     contactForms: {},
     newContact: Object.assign({}, CONTACT_TEMPLATE)
@@ -24,6 +20,9 @@ var state = {
 
 function setState(changes) {
     Object.assign(state, changes);
+
+    if (state.transition) return;
+
     ReactDOM.render(
         React.createElement(Application, state),
         document.getElementById("react-app")

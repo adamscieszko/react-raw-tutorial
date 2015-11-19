@@ -1,5 +1,6 @@
 var ContactItem = React.createClass({
     propTypes: {
+        id: React.PropTypes.string.isRequired,
         name: React.PropTypes.string.isRequired,
         email: React.PropTypes.string.isRequired,
         description: React.PropTypes.string
@@ -7,9 +8,9 @@ var ContactItem = React.createClass({
 
     render: function() {
         return (
-            React.createElement("li", { className: "contact-item" },
-                React.createElement("h2", { className: "contact-item-name" }, this.props.name),
-                React.createElement("a", { className: "contact-item-email", href: "mailto:" + this.props.email }, this.props.email),
+            React.createElement("div", { className: "contact-item" },
+                React.createElement("a", { className: "contact-item-name", href: "#/contacts/" + this.props.id }, this.props.name),
+                React.createElement("div", { className: "contact-item-email" }, this.props.email),
                 React.createElement("div", { className: "contact-item-description" }, this.props.description)
             )
         );

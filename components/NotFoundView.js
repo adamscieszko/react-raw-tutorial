@@ -3,9 +3,8 @@ var NotFoundView = React.createClass({
 
     render: function() {
         return (
-            React.createElement("div", {},
-                React.createElement("h1", {}, "Not found"),
-                React.createElement("a", { href: "#/contacts" }, "Contacts")
+            React.createElement("div", { className: "not-found-view" },
+                React.createElement("h1", { className: "not-found-view-title" }, "Not Found")
             )
         );
     }

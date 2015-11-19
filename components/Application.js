@@ -21,7 +21,10 @@ var Application = React.createClass({
                 }
                 break;
             default:
-                return React.createElement(NotFoundView , {});
+                return React.createElement("div", {},
+                    React.createElement("h1", {}, "Not found"),
+                    React.createElement("a", { href: "#/contacts" }, "Contacts")
+                );
         }
     }
 });
